@@ -10,7 +10,7 @@ import 'rxjs/Rx';
 export class MoviesService {
   apikey: string;
 
-  constructor(private _jsonp: Jsonp) {  
+  constructor(private _jsonp: Jsonp) {
     this.apikey = config.API_KEY;
   }
   //获取分类
@@ -35,7 +35,7 @@ export class MoviesService {
       })
   }
 
-  //顶级电影
+  //顶级(最新)电影
   public getTopRatedMovies() {
     var search = new URLSearchParams();
     search.set('api_key', this.apikey);
@@ -44,10 +44,21 @@ export class MoviesService {
         return res.json();
       })
   }
+
+  //流行电影
+  public getPopularMovies() {
+    let search = new URLSearchParams();
+    search.set('api_key', this.apikey);
+    return this._jsonp.get(`${config.API_URL}/3/movie/popular?callback=JSONP_CALLBACK`, { search }).map(res => {
+      console.log(res)
+      return res.json();
+    })
+  }
+
   //搜索影片
-  public searchMovies(searchStr: string) {
+  public searchMovies(searchStr: string, searchType: string) {
     var search = new URLSearchParams();
-    search.set('sort_by', 'popularity.desc');
+    search.set('sort_by', `${searchType}.desc`);
     search.set('query', searchStr);
     search.set('api_key', this.apikey);
     return this._jsonp.get(`${config.API_URL}/3/search/movie?callback=JSONP_CALLBACK`, { search })

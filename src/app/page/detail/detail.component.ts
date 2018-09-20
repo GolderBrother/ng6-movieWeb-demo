@@ -21,7 +21,6 @@ export class DetailComponent {
 
   ngOnInit(){
     this.router.params.subscribe((params) => {  //路由传参
-      // var id = params['id'];
       const { id } = params;
       //电影基本信息 获取评论 获取演员表 获取推荐相似
       this.http.getMovie(id).subscribe(res =>{

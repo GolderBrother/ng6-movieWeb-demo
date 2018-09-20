@@ -8,7 +8,7 @@ import { MoviesService } from '../../service/movies.service';
   styleUrls: ['./genres.component.css'],
   providers:[MoviesService]
 })
-export class GenresComponent {
+export class GenresMovies {
   genresName:string;
   movies:Array<Object>;
 

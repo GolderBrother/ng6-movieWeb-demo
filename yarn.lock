@@ -4665,9 +4665,9 @@ promise@^7.1.1:
   dependencies:
     asap "~2.0.3"
 
-protractor@~5.4.0:
+protractor@^5.4.1:
   version "5.4.1"
-  resolved "https://registry.yarnpkg.com/protractor/-/protractor-5.4.1.tgz#011a99e38df7aa45d22455b889ffbb13a6ce0bd9"
+  resolved "http://registry.npm.taobao.org/protractor/download/protractor-5.4.1.tgz#011a99e38df7aa45d22455b889ffbb13a6ce0bd9"
   dependencies:
     "@types/node" "^6.0.46"
     "@types/q" "^0.0.32"

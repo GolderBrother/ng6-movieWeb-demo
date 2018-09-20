@@ -20,10 +20,12 @@ export class ActorComponent implements OnInit {
       const id = params['id'];
       // 获取演员详情
       this.http.getPersonDetail(id).subscribe(person => {
+        console.log(person)
         this.person = person;
       });
       // 获取演员表
       this.http.getPersonCast(id).subscribe(res => {
+        console.log(res)
         this.movies = res.cast;
       });
     })

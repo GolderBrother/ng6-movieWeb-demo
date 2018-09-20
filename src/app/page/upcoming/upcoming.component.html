@@ -1,0 +1,12 @@
+<!-- 搜索板块 -->
+<app-search (searchevent)="searchMovies($event)" (searchhistory)="getSearchHistory(searchHitory)" [searchstring]="searchStr" [searchtype]="movieType"></app-search>
+
+<!--流行电影-->
+<div class="topRated-movies" *ngIf="!showSearch">
+  <h3 class="orange-text">Top Rated Movies 顶级电影</h3>
+  <div class="row is-flex">
+    <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let movie of topRatedMovies">
+      <movie-view [movie]="movie"></movie-view>
+    </div>
+  </div>
+</div>

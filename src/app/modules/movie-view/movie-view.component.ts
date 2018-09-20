@@ -6,6 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./movie-view.component.css']
 })
 export class MovieViewComponent {
-  //获取父参数
-  @Input() movie: Object;    //object 对象   数据 
+  //获取父组件传递过来的参数
+  @Input() movie: Object;    //object 对象   
 }

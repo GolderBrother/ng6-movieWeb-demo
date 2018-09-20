@@ -11,7 +11,7 @@ import { DetailComponent } from '../../page/detail/detail.component'; //电影�
 import { ActorComponent } from '../../page/actor/actor.component'; //演员
 
 @NgModule({
-  declarations: [   //自定义模块 相当于把这些组件都放到模块中，就不用在app.module.ts中引用
+  declarations: [   //自定义模块 相当于把这些组件都放到模块中，就不用每个在app.module.ts中引用
     MovieViewComponent, 
     DetailComponent,
     ActorComponent

@@ -1,0 +1,33 @@
+<!-- 搜索板块 -->
+<div class="search-wrapper">
+  <!-- 搜索框 -->
+  <div class="jumbotron">
+    <p>Search for a movie using the form below</p>
+    <form>
+      <div class="form-group">
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Search for movies..." [(ngModel)]="searchstring" name="searchStr"
+            (keyup.enter)="search()">
+          <span class="input-group-btn">
+            <button class="btn btn-primary" type="button" (click)="search()">Go!</button>
+          </span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!--搜索结果-->
+  <div class="search" *ngIf="showSearch"> 
+    <div *ngIf="searchLists.length; else elseBlock">
+      <h3 class="orange-text">搜索结果</h3>
+      <div class="row is-flex">
+        <div class="col-sm-6 col-md-4 col-lg-3 col-xs-6" *ngFor="let list of searchLists">
+          <movie-view [movie]="list"></movie-view>
+        </div>
+      </div>
+    </div>
+    <ng-template #elseBlock>
+      <h4>哎呦，没找到哦！重新搜索一下吧</h4>
+    </ng-template>
+  </div>
+</div>

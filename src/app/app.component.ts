@@ -8,12 +8,6 @@ interface Obj {
 // const Arr:Obj[]=[
 //      {id:1,name:'影片分类1'},
 //      {id:2,name:'影片分类1'},
-//      {id:3,name:'影片分类1'},
-//      {id:8,name:'影片分类1'},
-//      {id:4,name:'影片分类1'},
-//      {id:5,name:'影片分类1'},
-//      {id:6,name:'影片分类1'},
-//      {id:7,name:'影片分类1'}
 // ]
 @Component({
   selector: 'app-root',
@@ -26,6 +20,7 @@ export class AppComponent {
   genres:Obj;
  // genres = Arr;
   constructor(private http:MoviesService) {}
+  // 一个生命周期钩子，它会在 Angular 初始化完了该指令的所有数据绑定属性之后调用
   ngOnInit(){
     //http请求
     this.http.getGenres().subscribe(res =>{

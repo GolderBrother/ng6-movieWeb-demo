@@ -8,6 +8,6 @@ import { Component,Input } from '@angular/core';
 })
 
 export class MovieCategory {
-    //获取父参数
-    @Input() genres:Object; //object 对象   数据 
+    // 声明一个可供数据绑定的输入属性 接收父组件传递过来的数据
+    @Input() genres:Object; //object 对象    
 }

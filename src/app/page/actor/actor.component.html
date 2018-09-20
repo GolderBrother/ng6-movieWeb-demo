@@ -1,8 +1,9 @@
 <div class="row" *ngIf="person">
   <div class="col-md-3">
     <div class="thumbnail">
-      <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path">
-      <img src="assets/abstract-image.jpg" *ngIf="!person.profile_path">
+      <!-- ngIf 会对 expression 进行求值，如果为真，则在原地渲染 then 模板，否则渲染 else 模板。注意，else 绑定指向的是一个带有 #elseBlock 标签的 <ng-template> 元素-->
+      <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}" *ngIf="person.profile_path; else elseBlock" />
+      <ng-template #elseBlock><img src="assets/abstract-image.jpg" /></ng-template>
       <div class="caption">
         <h4 class="text-ellipsis">
           {{person.name}}

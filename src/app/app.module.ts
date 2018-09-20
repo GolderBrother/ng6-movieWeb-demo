@@ -5,20 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';  //Http请求
 import { HttpModule, JsonpModule } from '@angular/http';  //jsonp
 
+// page 页面
 import { AppComponent } from './app.component';
-import { MoviesComponent } from './page/movies/movies.component';  //movies组件
-//import { UpcomingComponent } from './upcoming/upcoming.component';//UpcomingComponent
-import { GenresComponent } from './page/genres/genres.component'; //分类
-//import { MovieViewComponent } from './movie-view/movie-view.component'; //影片封装
+import { UpcomingMovies } from './page/upcoming/upcoming.component'; //最新电影
+import { PopularMovies } from './page/popular/popular.component';  //流行电影
+import { GenresMovies } from './page/genres/genres.component'; //分类
 import { appRoutes } from './app.routes';   //路由
 
 // 引入公共组件
 import { HeaderComponent } from "./components/header/header.component";
 import { FooterComponent } from './components/footer/footer.component';
 import { MovieCategory } from "./components/category/category.component";
+import { SearchComponent } from './components/search/search.component';
 
 // 引入公共模块
-import {UpcomingModule} from './modules/upcoming/upcoming.module'; //最新电影模块
+// import {UpcomingModule} from './modules/upcoming/upcoming.module'; //最新电影模块
 import {MovieViewModule} from './modules/movie-view/movie-view.module'; //封装模块
 
 @NgModule({
@@ -27,10 +28,10 @@ import {MovieViewModule} from './modules/movie-view/movie-view.module'; //封装
     HeaderComponent,
     FooterComponent,
     MovieCategory,
-    MoviesComponent,
-    //UpcomingComponent,
-    GenresComponent,
-    //MovieViewComponent
+    SearchComponent,
+    UpcomingMovies,
+    PopularMovies,
+    GenresMovies
   ],
   imports: [     //系统模块
     BrowserModule,
@@ -38,7 +39,6 @@ import {MovieViewModule} from './modules/movie-view/movie-view.module'; //封装
     HttpClientModule,
     HttpModule,
     JsonpModule,
-    UpcomingModule,
     MovieViewModule,
     RouterModule.forRoot(appRoutes)
   ],
