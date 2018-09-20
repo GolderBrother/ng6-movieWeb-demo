@@ -8,10 +8,14 @@
       </button>
     </div>
     <div class="collapse navbar-collapse movies-cat">
-      <div class="panel-heading">Movies Category影片分类</div>
+      <div class="panel-heading">
+        <h4>Movies Category影片分类</h4>
+      </div>
       <ul class="nav nav-stacked">
         <!-- routerLink 路由跳转  routerLinkActive 点击后可以添加样式类-->
-        <a routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" class="list-group-item" *ngFor="let genre of genres">{{genre.name}}</a>
+        <li *ngFor="let genre of genres">
+            <a routerLink="/genres/{{genre.id}}/{{genre.name}}" routerLinkActive="active" class="list-group-item">{{genre.name}}</a>
+        </li>
       </ul>
     </div>
   </nav>

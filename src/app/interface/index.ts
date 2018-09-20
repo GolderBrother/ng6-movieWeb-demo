@@ -1,4 +1,4 @@
-export const interface searchObj{
-    showSearch: true;
-    list: [];
+export interface searchObj{
+    showSearch: boolean;
+    list: Array<Object>;
 }

@@ -33,7 +33,7 @@ export class SearchComponent {
     }
     // 获取搜索历史
     getSearchHistory() {
-        const searchHistoryObj = JSON.parse(localStorage.getItem("searchHistory"));
+        const searchHistoryObj = JSON.parse(sessionStorage.getItem("searchHistory"));
         console.log(searchHistoryObj)
         if (!searchHistoryObj) {
             return {
@@ -48,11 +48,7 @@ export class SearchComponent {
         return {
             showSearch: showSearch,
             list: searchLists
-        }
-        // this.searchhistory.emit({
-        //     showSearch: showSearch,
-        //     list: searchLists
-        // });
+        };
     }
     search(): void {
         const { searchstring, searchtype } = this;
@@ -69,7 +65,7 @@ export class SearchComponent {
                 showSearch: this.showSearch,
                 list: this.searchLists
             })
-            localStorage.removeItem("searchHistory");
+            sessionStorage.removeItem("searchHistory");
         } else {
             // popularity upcoming 
             // 注意：这是异步的 必须注意！！ 因此如果这一步的数据需要传递出去，必须写在回调函数里面，不能写在外面，比如if(){}else{} 外面
@@ -92,20 +88,9 @@ export class SearchComponent {
                     showSearch,
                     searchLists
                 };
-                localStorage.setItem("searchHistory", JSON.stringify(searchHistoryObj));
+                sessionStorage.setItem("searchHistory", JSON.stringify(searchHistoryObj));
             })
 
         };
     }
-    // 搜索方法
-    // searchMovies(datas: Object): void {
-    //     const { status, list } = datas;
-    //     if (status === 0) {
-    //         this.showSearch = false;
-    //         this.searchLists = [];
-    //         return;
-    //     };
-    //     this.showSearch = true;
-    //     this.searchLists = list;
-    // }
 }

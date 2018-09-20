@@ -42,12 +42,12 @@ export class UpcomingMovies {
 
   // 获取最新电影
   getTopRated():void{
-    const topRatedMovies = JSON.parse(localStorage.getItem("topRatedMovies"));
+    const topRatedMovies = JSON.parse(sessionStorage.getItem("topRatedMovies"));
     if(!topRatedMovies){
       this.http.getTopRatedMovies().subscribe(res => {
         this.topRatedMovies = res.results;  //顶级影片
-        // 存到 localStorage 中，下次进来直接取
-        localStorage.setItem("topRatedMovies",JSON.stringify(res.results));
+        // 存到 sessionStorage 中，下次进来直接取
+        sessionStorage.setItem("topRatedMovies",JSON.stringify(res.results));
       });
     }else{
       this.topRatedMovies = topRatedMovies;

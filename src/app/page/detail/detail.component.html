@@ -3,7 +3,8 @@
   <div class="col-md-4">
     <img src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}" alt="" class="thumbnail">
     <p>
-      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies Website</a>
+      <a *ngIf="movie.homepage" href="{{movie.homepage}}" class="btn btn-info btn-block" target="_blank">Visit Movies
+        Website</a>
     </p>
   </div>
   <div class="col-md-8">
@@ -13,7 +14,8 @@
         <i class="glyphicon glyphicon-star"></i>
       </small>
     </h2>
-    <a class="go-back" (click)="goBack()">返回</a>
+    <!-- <a class="go-back" (click)="goBack()">返回</a> -->
+    <button type="button" (click)="goBack()" class="go-back btn btn-default">返回</button>
     <p>{{movie.tagline}}</p>
     <p>
       <a routerLink="/genres/{{genre.id}}/{{genre.name}}" *ngFor="let genre of movie.genres" class="label label-info m-r-md">
@@ -35,7 +37,7 @@
           <div class="caption">
             <h6 class="text-center"><a routerLink="/actor/{{actor.id}}">{{actor.name}}</a></h6>
           </div>
-        </div >
+        </div>
       </div>
     </div>
   </div>

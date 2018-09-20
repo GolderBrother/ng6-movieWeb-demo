@@ -45,12 +45,12 @@ export class PopularMovies {
 
   // 获取流行电影
   getPopular(): void {
-    const popularMovies = JSON.parse(localStorage.getItem("popularMovies"));
+    const popularMovies = JSON.parse(sessionStorage.getItem("popularMovies"));
     if (!popularMovies) {
       this.http.getPopularMovies().subscribe(res => {
         this.popularMovies = res.results;  //流行影片 
-        // 存到 localStorage 中，下次进来直接取
-        localStorage.setItem("popularMovies", JSON.stringify(res.results));
+        // 存到 sessionStorage 中，下次进来直接取
+        sessionStorage.setItem("popularMovies", JSON.stringify(res.results));
       });
     } else {
       this.popularMovies = popularMovies;

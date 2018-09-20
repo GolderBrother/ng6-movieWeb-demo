@@ -7,5 +7,7 @@ img {
 }
 .go-back {
     float:right;
+    color: #df691a;
+    border-radius: 4px;
     cursor:pointer;
 }
